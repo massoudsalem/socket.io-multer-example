@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload & Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+        .upload-section, .chat-section {
+            flex: 1;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #messages {
+            height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .message {
+            margin: 5px 0;
+            padding: 5px;
+            background-color: #f0f0f0;
+            border-radius: 3px;
+        }
+        #uploaded-files {
+            margin-top: 10px;
+        }
+        .file-item {
+            margin: 5px 0;
+        }
+        button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        input[type="text"] {
+            width: 70%;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>File Upload & Chat System</h1>
+    
+    <div class="container">
+        <div class="upload-section">
+            <h2>File Upload</h2>
+            <form id="upload-form">
+                <input type="file" id="file-input" name="file" required>
+                <button type="submit">Upload</button>
+            </form>
+            <div id="upload-status"></div>
+            <div id="uploaded-files">
+                <h3>Uploaded Files</h3>
+                <div id="files-list"></div>
+            </div>
+        </div>
+
+        <div class="chat-section">
+            <h2>Chat</h2>
+            <div id="messages"></div>
+            <div>
+                <input type="text" id="message-input" placeholder="Type a message...">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/main.js"></script>
+</body>
+</html>
